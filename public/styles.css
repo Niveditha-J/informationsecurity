@@ -1,0 +1,154 @@
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+body {
+  background: linear-gradient(135deg, #000000, #121212);
+  color: #eee;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Pages layout */
+.page {
+  background: #1c1c1c;
+  border-radius: 15px;
+  width: 350px;
+  padding: 40px 30px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeIn 1s ease forwards;
+  position: relative;
+}
+
+/* Show/hide pages */
+#homePage {
+  display: none;
+}
+body.logged #loginPage {
+  display: none;
+}
+body.logged #homePage {
+  display: flex;
+}
+
+/* Headings */
+h1, h4 {
+  color: #00fff7;
+  text-align: center;
+  letter-spacing: 1.2px;
+  text-shadow: 0 0 8px #00fff7;
+}
+
+/* Inputs */
+input.form-control {
+  background: #121212;
+  border: 2px solid #00fff7;
+  color: #eee;
+  padding: 12px 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: inset 0 0 8px #00fff7;
+  transition: border-color 0.3s ease;
+}
+input.form-control::placeholder {
+  color: #666;
+}
+input.form-control:focus {
+  outline: none;
+  border-color: #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+/* Buttons */
+button.btn {
+  background: linear-gradient(45deg, #00fff7, #00c7c7);
+  border: none;
+  color: #000;
+  font-weight: 700;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px #00fff7;
+  letter-spacing: 1.1px;
+  transition: all 0.3s ease;
+  user-select: none;
+  font-size: 16px;
+}
+button.btn:hover {
+  background: linear-gradient(45deg, #00c7c7, #00fff7);
+  box-shadow: 0 0 20px #00ffff;
+  transform: scale(1.05);
+}
+button.btn:active {
+  transform: scale(0.98);
+}
+
+/* 2FA form hidden/visible */
+#twoFAFormHolder {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  animation: slideDown 0.4s ease forwards;
+}
+
+.ready #twoFAFormHolder {
+  display: flex;
+}
+
+/* QR image style */
+/* QR image style */
+#qrImage {
+  border: 3px solid #00fff7;
+  border-radius: 12px;
+  width: 220px;      /* explicit width */
+  height: 220px;     /* explicit height */
+  object-fit: contain; /* keep QR ratio */
+  box-shadow: 0 0 15px #00fff7aa; /* subtle glow */
+  background: white;  /* dark background so white QR stands out */
+}
+
+
+/* Code input & hint */
+#loginForm .code {
+  display: none;
+  animation: fadeIn 0.8s ease forwards;
+}
+#loginForm.codeRequested .code {
+  display: block;
+}
+.code p {
+  font-size: 12px;
+  color: #aaa;
+  margin-top: 5px;
+  text-align: center;
+}
+
+/* Layout tweaks */
+form.d-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+@keyframes slideDown {
+  from {opacity: 0; max-height: 0;}
+  to {opacity: 1; max-height: 300px;}
+}

@@ -1,0 +1,15 @@
+{
+    "user1": {
+        "password": "123",
+        "2FA": {
+            "enabled": true,
+            "secret": "IB3FO4LPEZCTGVIJ"
+        }
+    },
+    "user2": {
+        "password": "123",
+        "2FA": {
+            "enabled": false
+        }
+    }
+}
