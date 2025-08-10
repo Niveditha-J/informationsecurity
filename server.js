@@ -48,9 +48,7 @@ app.get("/login", async (req, res) => {
   }
 });
 
-
-
-// generater QR Image
+// generate QR Image
 app.get("/qrImage", async (req, res) => {
   try {
     const { id } = req.cookies;
@@ -75,13 +73,6 @@ app.get("/qrImage", async (req, res) => {
     return res.status(500).send({ success: false, error: error.message });
   }
 });
-fetch('/qrImage', { credentials: 'include' })
-  .then(res => res.json())
-  .then(data => {
-    if (data.success) {
-      document.getElementById('qrImage').src = data.image;
-    }
-  });
 
 // set 2FA
 app.get("/set2FA", async (req, res) => {
